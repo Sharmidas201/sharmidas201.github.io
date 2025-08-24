@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Sharmi Das — Data Scientist & Math Tutor</title>
+  <meta name="description" content="Portfolio website for Sharmi Das — projects, tutoring, publications, and contact." />
+  <meta property="og:title" content="Sharmi Das — Portfolio" />
+  <meta property="og:description" content="Data science, ML, and tutoring portfolio." />
+  <meta property="og:type" content="website" />
+
+  <!-- Font upgrade -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       THEME TOKENS
+       ========================= */
+    :root {
+      --bg: #0b0f19;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted:#9ca3af;
+      --accent:#60a5fa;
+      --chip:#1f2937;
+      --ring:#93c5fd;
+      --border:#1f2937;
+    }
+
+    /* =========================
+       BASE / RESET
+       ========================= */
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { display:block; }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+    .grid { display: grid; gap: 18px; }
+    .grid-3 { grid-template-columns: repeat(3,1fr); }
+    .grid-2 { grid-template-columns: repeat(2,1fr); }
+    section { padding: 28px 0; }
+    h1, h2, h3 { line-height: 1.2; }
+    h2 { font-size: 24px; margin: 0 0 12px; }
+    .muted { color: var(--muted); }
+
+    /* =========================
+       HEADER / NAV
+       ========================= */
+    header {
+      position: sticky; top: 0;
+      backdrop-filter: saturate(1.3) blur(6px);
+      background: rgba(11,15,25,0.6);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .nav a { margin-left: 18px; font-weight: 600; color: var(--text); opacity: .9; }
+
+    /* =========================
+       BUTTONS / CHIPS
+       ========================= */
+    .btn {
+      display: inline-block; padding: 10px 14px; border-radius: 999px;
+      background: var(--accent); color: #0b0f19; font-weight: 700;
+      box-shadow: 0 4px 16px rgba(96,165,250,.25); border: 2px solid transparent;
+    }
+    .btn--ghost {
+      background: transparent; border-color: var(--ring); color: var(--text);
+    }
+    .btn:hover { text-decoration: none; filter: brightness(1.05); }
+    .chip {
+      background: var(--chip); color: var(--text);
+      padding: 6px 10px; border-radius: 999px; font-size: 14px;
+      display: inline-block; margin: 6px 6px 0 0; border: 1px solid #374151;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+    .hero { padding: 70px 0 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.1; margin: 0 0 12px; }
+    .hero p { color: var(--muted); margin-top: 0; }
+    .headshot {
+      width:100%; max-width:360px; aspect-ratio:1/1; border-radius:50%;
+      object-fit:cover; border:2px solid var(--border); margin:0 auto;
+    }
+
+    /* =========================
+       PROJECTS
+       ========================= */
+    .proj { display: flex; flex-direction: column; gap: 10px; }
+    .proj h3 { margin: 0; font-size: 18px; }
+    .proj p { margin: 0; color: var(--muted); }
+    .proj img { width:100%; border-radius:12px; border:1px solid var(--border); aspect-ratio:16/9; object-fit:cover; background:#0b1320; }
+
+    /* =========================
+       FOOTER
+       ========================= */
+    .footer { padding: 28px 0 60px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
+
+    /* =========================
+       A11Y UTILS
+       ========================= */
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+    @media (max-width:900px){
+      .hero{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================
+       HEADER
+       ========================= -->
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Primary">
+      <div><strong>Sharmi Das</strong></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#tutoring">Tutoring</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/Sharmidas201" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="#contact">Hire Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- =========================
+         HERO
+         ========================= -->
+    <section class="hero" id="home">
+      <div>
+        <h1>Data Scientist · ML Engineer · Math Tutor</h1>
+        <p>
+          Results-driven Data Scientist (MSc, TMU) specializing in <strong>ML engineering</strong>, <strong>data analysis</strong>,
+          and <strong>production ML</strong> on <strong>AWS, GCP, Azure</strong>. I build practical AI—<strong>RAG</strong>, <strong>NLP</strong>,
+          and <strong>Computer Vision</strong>—and make math feel easy through structured, empathetic teaching.
+        </p>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn" href="#projects" aria-label="See projects">See Projects</a>
+          <!-- NOTE: removed download attribute; Drive blocks cross-origin download. Open in new tab instead. -->
+          <a class="btn btn--ghost" href="https://drive.google.com/file/d/1JhQ0ukYoXFyxAjuLQIGrmQ8JUwaGBb1d/view?usp=sharing" target="_blank" rel="noopener" aria-label="View resume in new tab">View Résumé</a>
+        </div>
+
+        <div style="margin-top:14px">
+          <span class="chip">Python</span>
+          <span class="chip">PySpark</span>
+          <span class="chip">SQL</span>
+          <span class="chip">AWS</span>
+          <span class="chip">GCP</span>
+          <span class="chip">Azure</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">PyTorch</span>
+        </div>
+      </div>
+
+      <aside>
+        <figure class="card" style="text-align:center;">
+          <img src="img/headshot.jpg" alt="Portrait of Sharmi Das" class="headshot"/>
+          <figcaption class="muted" style="margin-top:8px">
+        </figure>
+        <div class="grid grid-2" style="margin-top:18px">
+            <div class="card">
+             <div class="muted">Latest</div>
+             <div style="font-weight:700">Research Assistant, TMU</div>
+             <div class="muted">AI &amp; Digital Health · Summer 2025</div>
+            </div>
+
+          <div class="card">
+            <div class="muted">Latest</div>
+            <div style="font-weight:700">Entropy-based biomarkers MRP</div>
+            <div class="muted">Cox Proportional Hazard Modeling</div>
+          </div>
+          <div class="card">
+            <div class="muted">Tutoring</div>
+            <div style="font-weight:700">Supported 50+ students across Canada</div>
+            <div class="muted">Gr.7–12 & University Mathematics and Computer Science.</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- =========================
+         ABOUT
+         ========================= -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>
+          I’m Sharmi — MSc in Data Science & Analytics (TMU, 2025). I design end-to-end ML systems—data ingestion,
+          feature pipelines, training/evaluation, and deployment—using Python, PySpark, SQL, Docker, and cloud (AWS/GCP/Azure).
+          Projects span healthcare, finance, and operations, including RAG, NLP, CV, XGBoost, CNNs, and LSTMs. Previously: QA Engineering at Cognizant;
+          GA/TA supporting 200+ students across engineering and health.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================
+         PROJECTS
+         ========================= -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid grid-3">
+        <article class="card proj">
+          <img src="img/rag-billing.png" alt="Screenshot of the RAG scientific QA chatbot"/>
+          <h3>RAG Scientific QA Chatbot</h3>
+          <p>LangChain + Pinecone + Llama 2 RAG system improving domain retrieval and reducing irrelevant responses.</p>
+          <div><span class="chip">Python</span><span class="chip">LangChain</span><span class="chip">Pinecone</span></div>
+          <p><a href="https://github.com/Sharmidas201/RagChatbot" target="_blank" rel="noopener">GitHub</a></p>
+        </article>
+
+        <article class="card proj">
+          <img src="img/entropy-biomarkers.png" alt="Charts from entropy-based biomarkers survival analysis"/>
+          <h3>Entropy Biomarkers (MRP)</h3>
+          <p>Analyzed 7,900+ TCGA records; entropy-derived pathway metrics with Cox models for survival prediction.</p>
+          <div><span class="chip">PyTorch</span><span class="chip">Pandas</span><span class="chip">Survival</span></div>
+          <p><a href="https://github.com/Sharmidas201/MRP-PROGRESS" target="_blank" rel="noopener">GitHub</a></p>
+        </article>
+
+        <article class="card proj">
+          <img src="img/jewelry-genai.png" alt="AI-generated jewelry design mockups"/>
+          <h3>Generative AI for Jewelry Design</h3>
+          <p>Diffusion-based prototyping assistant; reduced iteration time by ~40% for unique ring styles.</p>
+          <div><span class="chip">Diffusion</span><span class="chip">CV</span><span class="chip">Gradio</span></div>
+          <p><a href="https://github.com/Sharmidas201/GenAI-Fashion-ring-design/blob/main/Spherica_stablediffusion.ipynb" target="_blank" rel="noopener">GitHub</a></p>
+        </article>
+
+        <article class="card proj">
+          <img src="img/stroke-pipeline.png" alt="Pipeline diagram for stroke prediction project"/>
+          <h3>Stroke Prediction Pipeline</h3>
+          <p>XGBoost pipeline on AWS (S3/EC2/SageMaker) with monitoring and SHAP—94.7% accuracy.</p>
+          <div><span class="chip">XGBoost</span><span class="chip">AWS</span><span class="chip">MLOps</span></div>
+          <p><a href="https://github.com/Sharmidas201/AMAZON_AWS_PIPELINE-strokeprediction" target="_blank" rel="noopener">GitHub</a></p>
+        </article>
+
+        <article class="card proj">
+          <img src="img/energy-consumption.png" alt="Energy consumption time-series dashboard"/>
+          <h3>World Energy Consumption Pipeline</h3>
+          <p>Hadoop–PySpark–Hive–Kibana stack analyzing 22k+ records; revealed GDP-linked transition gaps.</p>
+          <div><span class="chip">PySpark</span><span class="chip">Hive</span><span class="chip">Kibana</span></div>
+          <p><a href="https://github.com/Sharmidas201/BigdataProjects" target="_blank" rel="noopener">GitHub</a></p>
+        </article>
+
+        <article class="card proj">
+          <img src="img/timeseries-forecast.png" alt="Sales and profit forecasting time series chart"/>
+          <h3>Sales & Profit Forecasting</h3>
+          <p>Regression + RNN-based forecasts with strong performance (R²≈0.90, MAE≈0.197).</p>
+          <div><span class="chip">RNN</span><span class="chip">Timeseries</span><span class="chip">Python</span></div>
+          <p><a href="https://github.com/Sharmidas201/RNN_timeseries/blob/main/README.md" target="_blank" rel="noopener">GitHub</a></p>
+        </article>
+
+        <article class="card proj">
+          <img src="img/alzheimer-cnn.png" alt="MRI classification model screenshot"/>
+          <h3>Alzheimer’s Stage Detection</h3>
+          <p>PyTorch/ResNet CNN to classify Alzheimer’s stages from MRI images—86% accuracy.</p>
+          <div><span class="chip">PyTorch</span><span class="chip">CNN</span><span class="chip">Medical</span></div>
+          <p><a href="https://github.com/Sharmidas201/Alzheimer-Stage-Detection" target="_blank" rel="noopener">GitHub</a></p>
+        </article>
+
+        <article class="card proj">
+          <img src="img/global-disease-burden.png" alt="Global Disease Burden Analyzer GUI and charts"/>
+          <h3>Global Disease Burden Analyzer</h3>
+          <p>Interactive PyQt5 + Matplotlib app and CLI to explore DALYs vs socioeconomic indicators; 15+ visualizations with regression/correlation reports.</p>
+          <div><span class="chip">Python</span><span class="chip">PyQt5</span><span class="chip">Matplotlib</span></div>
+          <p>
+            <a href="https://github.com/Sharmidas201/-Global-Disease-Burden-Analyzer" target="_blank" rel="noopener">GitHub</a>
+            ·
+            <a href="https://github.com/Sharmidas201/-Global-Disease-Burden-Analyzer/blob/main/DS8007_Final_projectreport_Das_Sharmi.pdf" target="_blank" rel="noopener">Report</a>
+          </p>
+        </article>
+      </div>
+
+      <div style="margin-top:14px">
+        <a class="btn" href="https://github.com/Sharmidas201" target="_blank" rel="noopener">View all on GitHub →</a>
+      </div>
+    </section>
+
+    <!-- =========================
+         TUTORING
+         ========================= -->
+    <section id="tutoring">
+      <h2>Tutoring</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Subjects I Teach</h3>
+          <p>Ontario Gr. 7–12 Math (Functions, Calculus &amp; Vectors, Data Management) and University-level Math &amp; Intro CS (Python, SQL, ML foundations).</p>
+        </div>
+        <div class="card">
+          <h3>What I Offer</h3>
+          <p>1:1 personalized online sessions, custom worksheets, recorded summaries, and progress reports.</p>
+          <p class="muted" style="margin-top:8px;">💡 Rates start at <strong>$50/hr</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTACT
+         ========================= -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <form action="mailto:dassharmi6@gmail.com" method="post" enctype="text/plain">
+          <label for="name">Name</label><br />
+          <input id="name" name="name" required style="width:100%;padding:10px;border-radius:10px;border:1px solid #374151;background:#0b1320;color:var(--text);" />
+          <br /><br />
+          <label for="email">Email</label><br />
+          <input id="email" name="email" type="email" required style="width:100%;padding:10px;border-radius:10px;border:1px solid #374151;background:#0b1320;color:var(--text);" />
+          <br /><br />
+          <label for="msg">Message</label><br />
+          <textarea id="msg" name="message" rows="5" required style="width:100%;padding:10px;border-radius:10px;border:1px solid #374151;background:#0b1320;color:var(--text);"></textarea>
+          <br /><br />
+          <button class="btn" type="submit">Send</button>
+          <span class="muted" style="margin-left:10px">or email <a href="mailto:dassharmi6@gmail.com">dassharmi6@gmail.com</a></span>
+        </form>
+      </div>
+    </section>
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+    <footer class="wrap footer">
+      <div>© <span id="year"></span> Sharmi Das • Toronto, ON •
+        <a href="https://www.linkedin.com/in/sharmidas0402" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="https://github.com/Sharmidas201" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://sharmidas.my.canva.site/" target="_blank" rel="noopener">Canva Portfolio</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- =========================
+       SCRIPTS
+       ========================= -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // OPTIONAL: simple partial loader if you want to split sections into /partials/*.html later.
+    // Example usage: <div data-include="/partials/header.html"></div>
+    // fetchIncludes();
+    function fetchIncludes() {
+      document.querySelectorAll('[data-include]').forEach(async el => {
+        try {
+          const res = await fetch(el.getAttribute('data-include'));
+          el.innerHTML = await res.text();
+        } catch (e) {
+          console.warn('Include failed:', e);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
